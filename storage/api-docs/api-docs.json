@@ -1,0 +1,3447 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "SOU (Employment).",
+        "description": "API de colaboradores (UNIVESP).",
+        "contact": {
+            "email": "eduardo.ferreira@connectcom.univesp.br"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/addresses": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Exibe listagem de endere\u00e7os.",
+                "description": "Obter todos os endere\u00e7os.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Exibe endere\u00e7o espec\u00edfico.",
+                "description": "Obter endere\u00e7o pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of address",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/cities": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Exibe listagem de cidades.",
+                "description": "Obter todas as cidades.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/cities/{id}": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Exibe cidade espec\u00edfica.",
+                "description": "Obter cidade pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of city",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/contracting-regimes": {
+            "get": {
+                "tags": [
+                    "Contracting Regime"
+                ],
+                "summary": "Exibe listagem de regimes de contrata\u00e7\u00e3o.",
+                "description": "Obter todos os regimes de contrata\u00e7\u00e3o.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contracting Regime"
+                ],
+                "summary": "Armazena regime de contrata\u00e7\u00e3o rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um regime de contrata\u00e7\u00e3o",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/contracting-regimes/{id}": {
+            "get": {
+                "tags": [
+                    "Contracting Regime"
+                ],
+                "summary": "Exibe regime de contrata\u00e7\u00e3o espec\u00edfico.",
+                "description": "Obter regime de contrata\u00e7\u00e3o pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Contracting Regime"
+                ],
+                "summary": "Atualiza regime de contrata\u00e7\u00e3o espec\u00edfico do banco de dados.",
+                "description": "Atualiza regime de contrata\u00e7\u00e3o pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Contracting Regime"
+                ],
+                "summary": "Remove regime de contrata\u00e7\u00e3o espec\u00edfico do banco de dados.",
+                "description": "Deleta regime de contrata\u00e7\u00e3o pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Exibe listagem de pa\u00edses.",
+                "description": "Obter todos os pa\u00edses.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Armazena pa\u00eds rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um pa\u00eds",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "portuguese_name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "iso_alfa",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/countries/{id}": {
+            "get": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Exibe pa\u00eds espec\u00edfico.",
+                "description": "Obter pa\u00eds pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Atualiza pa\u00eds espec\u00edfico do banco de dados.",
+                "description": "Atualiza pa\u00eds pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "portuguese_name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "iso_alfa",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Remove pa\u00eds espec\u00edfico do banco de dados.",
+                "description": "Deleta pa\u00eds pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/departments": {
+            "get": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Exibe listagem de departamentos.",
+                "description": "Obter todos os departamentos.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Armazena departamento rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um departamento",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/departments/{id}": {
+            "get": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Exibe departamento espec\u00edfico.",
+                "description": "Obter departamento pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of department",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Atualiza departamento espec\u00edfico do banco de dados.",
+                "description": "Atualiza departamento pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of department",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Remove departamento espec\u00edfico do banco de dados.",
+                "description": "Deleta departamento pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of department",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/dependents": {
+            "get": {
+                "tags": [
+                    "Dependent"
+                ],
+                "summary": "Exibe listagem de dependentes.",
+                "description": "Obter todos os dependentes.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/dependents/{id}": {
+            "get": {
+                "tags": [
+                    "Dependent"
+                ],
+                "summary": "Exibe dependente espec\u00edfico.",
+                "description": "Obter dependente pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of dependent",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/dependent-types": {
+            "get": {
+                "tags": [
+                    "Dependent Type"
+                ],
+                "summary": "Exibe listagem de tipos de dependentes.",
+                "description": "Obter todos os tipos de dependentes.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Dependent Type"
+                ],
+                "summary": "Armazena tipo de dependente rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um pa\u00eds",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/dependent-types/{id}": {
+            "get": {
+                "tags": [
+                    "Dependent Type"
+                ],
+                "summary": "Exibe tipo de dependente espec\u00edfico.",
+                "description": "Obter tipo de dependente pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of dependent type",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Dependent Type"
+                ],
+                "summary": "Atualiza tipo de dependente espec\u00edfico do banco de dados.",
+                "description": "Atualiza tipo de dependente pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of dependent type",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Dependent Type"
+                ],
+                "summary": "Remove tipo de dependente espec\u00edfico do banco de dados.",
+                "description": "Deleta tipo de dependente pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of dependent type",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/education": {
+            "get": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Exibe listagem de escolaridades.",
+                "description": "Obter todas as escolaridades.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/education/{id}": {
+            "get": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Exibe escolaridade espec\u00edfica.",
+                "description": "Obter escolaridade pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of education",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/emails": {
+            "get": {
+                "tags": [
+                    "Email"
+                ],
+                "summary": "Exibe listagem de emails.",
+                "description": "Obter todos os emails.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/emails/{id}": {
+            "get": {
+                "tags": [
+                    "Email"
+                ],
+                "summary": "Exibe email espec\u00edfico.",
+                "description": "Obter email pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of email",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/employees": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Exibe listagem de colaboradores.",
+                "description": "Obter todos os colaboradores.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Armazena colaborador rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um colaborador",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Employee",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "example": "last name"
+                                },
+                                "birth_date": {
+                                    "type": "string",
+                                    "example": "2000-01-01"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "example": "M"
+                                },
+                                "flag_on": {
+                                    "type": "boolean",
+                                    "example": "true"
+                                },
+                                "cpf": {
+                                    "type": "string",
+                                    "example": "123.456.789-00"
+                                },
+                                "blood_type": {
+                                    "type": "string",
+                                    "example": "O+"
+                                },
+                                "organ_donor": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "assumed_name": {
+                                    "type": "string",
+                                    "example": "assumed name"
+                                },
+                                "flag_pwd": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_visually": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_hearing": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_physically": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_intellectually": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "description_other_pwd": {
+                                    "type": "string",
+                                    "example": "description other pwd"
+                                },
+                                "first_job_ctps": {
+                                    "type": "string",
+                                    "example": "fjc"
+                                },
+                                "first_job_public": {
+                                    "type": "string",
+                                    "example": "fjp"
+                                },
+                                "icd": {
+                                    "type": "string",
+                                    "example": "1234567893"
+                                },
+                                "country_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "nationality_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "ethnicity_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "marital_status_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "address": {
+                                    "properties": {
+                                        "neighborhood": {
+                                            "type": "string",
+                                            "example": "neighborhood"
+                                        },
+                                        "street": {
+                                            "type": "string",
+                                            "example": "street"
+                                        },
+                                        "street_number": {
+                                            "type": "string",
+                                            "example": "123"
+                                        },
+                                        "street_type": {
+                                            "type": "string",
+                                            "example": "street type"
+                                        },
+                                        "zipcode": {
+                                            "type": "string",
+                                            "example": "01234-567"
+                                        },
+                                        "street_complement": {
+                                            "type": "string",
+                                            "example": "street_complement"
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "AA"
+                                        },
+                                        "city_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        }
+                                    }
+                                },
+                                "city": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "AA"
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "example": "1234567"
+                                        }
+                                    }
+                                },
+                                "telephone": {
+                                    "properties": {
+                                        "ddd": {
+                                            "type": "string",
+                                            "example": "123"
+                                        },
+                                        "telephone": {
+                                            "type": "string",
+                                            "example": "(11)1234-5678"
+                                        },
+                                        "telephone_type": {
+                                            "type": "string",
+                                            "example": "telephone type"
+                                        },
+                                        "ddi": {
+                                            "type": "string",
+                                            "example": "123"
+                                        }
+                                    }
+                                },
+                                "email": {
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "example": "email@email.com"
+                                        },
+                                        "email_type": {
+                                            "type": "string",
+                                            "example": "email type"
+                                        }
+                                    }
+                                },
+                                "department_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "dependents": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "birth_date": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "cpf": {
+                                                "type": "string",
+                                                "example": "123.456.789-00"
+                                            },
+                                            "employee_id": {
+                                                "type": "string",
+                                                "example": "1"
+                                            },
+                                            "dependent_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "education": {
+                                    "properties": {
+                                        "course": {
+                                            "type": "string",
+                                            "example": "course"
+                                        },
+                                        "education_level": {
+                                            "type": "string",
+                                            "example": "education level"
+                                        },
+                                        "education_institution": {
+                                            "type": "string",
+                                            "example": "education institution"
+                                        },
+                                        "starting_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "finishing_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "employee_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        }
+                                    }
+                                },
+                                "parentages": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "gender": {
+                                                "type": "string",
+                                                "example": "M"
+                                            },
+                                            "birth_date": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "parentage_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "occupation_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "identities": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "date_issued": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "description"
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "example": "123456789"
+                                            },
+                                            "series_number": {
+                                                "type": "string",
+                                                "example": "123456789"
+                                            },
+                                            "state_issued": {
+                                                "type": "string",
+                                                "example": "AA"
+                                            },
+                                            "zone": {
+                                                "type": "string",
+                                                "example": "zone"
+                                            },
+                                            "section": {
+                                                "type": "string",
+                                                "example": "abc"
+                                            },
+                                            "identity_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "issuing_entity_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "work_contract": {
+                                    "properties": {
+                                        "hiring_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "end_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "examination_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "dismissal_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "flag_fixed_term": {
+                                            "type": "string",
+                                            "example": "A"
+                                        },
+                                        "term": {
+                                            "type": "string",
+                                            "example": "1234567890"
+                                        },
+                                        "new_end_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "new_term": {
+                                            "type": "string",
+                                            "example": "1234567890"
+                                        },
+                                        "contracting_regime_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        }
+                                    }
+                                },
+                                "tax_benefits": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "example": "1234567890"
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "example": "1500"
+                                            },
+                                            "work_contract_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/employees/{id}": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Exibe colaborador espec\u00edfico.",
+                "description": "Obter colaborador pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of employee",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Atualiza colaborador espec\u00edfico do banco de dados.",
+                "description": "Atualiza colaborador pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "employee",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Employee",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "example": "last name"
+                                },
+                                "birth_date": {
+                                    "type": "string",
+                                    "example": "2000-01-01"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "example": "M"
+                                },
+                                "flag_on": {
+                                    "type": "boolean",
+                                    "example": "true"
+                                },
+                                "cpf": {
+                                    "type": "string",
+                                    "example": "123.456.789-00"
+                                },
+                                "blood_type": {
+                                    "type": "string",
+                                    "example": "O+"
+                                },
+                                "organ_donor": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "assumed_name": {
+                                    "type": "string",
+                                    "example": "assumed name"
+                                },
+                                "flag_pwd": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_visually": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_hearing": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_physically": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "flag_intellectually": {
+                                    "type": "boolean",
+                                    "default": "true"
+                                },
+                                "description_other_pwd": {
+                                    "type": "string",
+                                    "example": "description other pwd"
+                                },
+                                "first_job_ctps": {
+                                    "type": "string",
+                                    "example": "fjc"
+                                },
+                                "first_job_public": {
+                                    "type": "string",
+                                    "example": "fjp"
+                                },
+                                "icd": {
+                                    "type": "string",
+                                    "example": "1234567893"
+                                },
+                                "country_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "nationality_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "ethnicity_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "marital_status_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "address": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "neighborhood": {
+                                            "type": "string",
+                                            "example": "neighborhood"
+                                        },
+                                        "street": {
+                                            "type": "string",
+                                            "example": "street"
+                                        },
+                                        "street_number": {
+                                            "type": "string",
+                                            "example": "123"
+                                        },
+                                        "street_type": {
+                                            "type": "string",
+                                            "example": "street type"
+                                        },
+                                        "zipcode": {
+                                            "type": "string",
+                                            "example": "01234-567"
+                                        },
+                                        "street_complement": {
+                                            "type": "string",
+                                            "example": "street_complement"
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "AA"
+                                        },
+                                        "city_id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        }
+                                    }
+                                },
+                                "city": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "AA"
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "example": "1234567"
+                                        }
+                                    }
+                                },
+                                "telephone": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "ddd": {
+                                            "type": "string",
+                                            "example": "123"
+                                        },
+                                        "telephone": {
+                                            "type": "string",
+                                            "example": "(11)1234-5678"
+                                        },
+                                        "telephone_type": {
+                                            "type": "string",
+                                            "example": "telephone type"
+                                        },
+                                        "ddi": {
+                                            "type": "string",
+                                            "example": "123"
+                                        }
+                                    }
+                                },
+                                "email": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "email@email.com"
+                                        },
+                                        "email_type": {
+                                            "type": "string",
+                                            "example": "email type"
+                                        }
+                                    }
+                                },
+                                "department_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "dependents": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "51"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "birth_date": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "cpf": {
+                                                "type": "string",
+                                                "example": "123.456.789-00"
+                                            },
+                                            "employee_id": {
+                                                "type": "string",
+                                                "example": "51"
+                                            },
+                                            "dependent_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "education": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "course": {
+                                            "type": "string",
+                                            "example": "course"
+                                        },
+                                        "education_level": {
+                                            "type": "string",
+                                            "example": "education level"
+                                        },
+                                        "education_institution": {
+                                            "type": "string",
+                                            "example": "education institution"
+                                        },
+                                        "starting_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "finishing_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "employee_id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        }
+                                    }
+                                },
+                                "parentages": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "51"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "gender": {
+                                                "type": "string",
+                                                "example": "M"
+                                            },
+                                            "birth_date": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "parentage_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "occupation_id": {
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "identities": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "51"
+                                            },
+                                            "date_issued": {
+                                                "type": "string",
+                                                "example": "2000-01-01"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "description"
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "example": "123456789"
+                                            },
+                                            "series_number": {
+                                                "type": "string",
+                                                "example": "123456789"
+                                            },
+                                            "state_issued": {
+                                                "type": "string",
+                                                "example": "AA"
+                                            },
+                                            "zone": {
+                                                "type": "string",
+                                                "example": "zone"
+                                            },
+                                            "section": {
+                                                "type": "string",
+                                                "example": "abc"
+                                            },
+                                            "identity_type_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "issuing_entity_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "work_contract": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "hiring_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "end_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "examination_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "dismissal_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "flag_fixed_term": {
+                                            "type": "string",
+                                            "example": "A"
+                                        },
+                                        "term": {
+                                            "type": "string",
+                                            "example": "1234567890"
+                                        },
+                                        "new_end_date": {
+                                            "type": "string",
+                                            "example": "2000-01-01"
+                                        },
+                                        "new_term": {
+                                            "type": "string",
+                                            "example": "1234567890"
+                                        },
+                                        "contracting_regime_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "address_id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        },
+                                        "employee_id": {
+                                            "type": "integer",
+                                            "example": "51"
+                                        }
+                                    }
+                                },
+                                "tax_benefits": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "51"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "name"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "example": "1234567890"
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "example": "1500"
+                                            },
+                                            "work_contract_id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Remove colaborador espec\u00edfico do banco de dados.",
+                "description": "Deleta colaborador pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/ethnicities": {
+            "get": {
+                "tags": [
+                    "Ethnicity"
+                ],
+                "summary": "Exibe listagem de etnias.",
+                "description": "Obter todas as etnias.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Ethnicity"
+                ],
+                "summary": "Armazena etnia rec\u00e9m-criada no banco de dados",
+                "description": "Armazena uma etnia",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/ethnicities/{id}": {
+            "get": {
+                "tags": [
+                    "Ethnicity"
+                ],
+                "summary": "Exibe etnia espec\u00edfica.",
+                "description": "Obter etnia pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of ethnicity",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Ethnicity"
+                ],
+                "summary": "Atualiza etnia espec\u00edfica do banco de dados.",
+                "description": "Atualiza etnia pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of ethnicity",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Ethnicity"
+                ],
+                "summary": "Remove etnia espec\u00edfica do banco de dados.",
+                "description": "Deleta etnia pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of ethnicity",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/identities": {
+            "get": {
+                "tags": [
+                    "Identity"
+                ],
+                "summary": "Exibe listagem de documentos.",
+                "description": "Obter todos os documentos.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/identities/{id}": {
+            "get": {
+                "tags": [
+                    "Identity"
+                ],
+                "summary": "Exibe documento espec\u00edfico.",
+                "description": "Obter documento pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of identity",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/identity-types": {
+            "get": {
+                "tags": [
+                    "Identity Type"
+                ],
+                "summary": "Exibe listagem de tipos de documentos.",
+                "description": "Obter todos os tipos de documentos.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Identity Type"
+                ],
+                "summary": "Armazena tipo de documento rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um tipo de documento",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/identity-types/{id}": {
+            "get": {
+                "tags": [
+                    "Identity Type"
+                ],
+                "summary": "Exibe tipo de documento espec\u00edfico.",
+                "description": "Obter tipo de documento pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of identity type",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Identity Type"
+                ],
+                "summary": "Atualiza tipo de documento espec\u00edfico do banco de dados.",
+                "description": "Atualiza tipo de documento pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of identity type",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Identity Type"
+                ],
+                "summary": "Remove tipo de documento espec\u00edfico do banco de dados.",
+                "description": "Deleta tipo de documento pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of identity type",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/issuing-entities": {
+            "get": {
+                "tags": [
+                    "Issuing Entity"
+                ],
+                "summary": "Exibe listagem de entidades emissoras.",
+                "description": "Obter todas as entidades emissoras.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Issuing Entity"
+                ],
+                "summary": "Armazena entidade emissora rec\u00e9m-criada no banco de dados",
+                "description": "Armazena uma entidade emissora",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/issuing-entities/{id}": {
+            "get": {
+                "tags": [
+                    "Issuing Entity"
+                ],
+                "summary": "Exibe entidade emissora espec\u00edfica.",
+                "description": "Obter entidade emissora pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of issuing entity",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Issuing Entity"
+                ],
+                "summary": "Atualiza entidade emissora espec\u00edfica do banco de dados.",
+                "description": "Atualiza entidade emissora pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of issuing entity",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Issuing Entity"
+                ],
+                "summary": "Remove entidade emissora espec\u00edfica do banco de dados.",
+                "description": "Deleta entidade emissora pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of issuing entity",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/marital-statuses": {
+            "get": {
+                "tags": [
+                    "Marital Status"
+                ],
+                "summary": "Exibe listagem de estados civis.",
+                "description": "Obter todos os estados civis.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Marital Status"
+                ],
+                "summary": "Armazena estado civil rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um estado civil",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/marital-statuses/{id}": {
+            "get": {
+                "tags": [
+                    "Marital Status"
+                ],
+                "summary": "Exibe estado civil espec\u00edfico.",
+                "description": "Obter estado civil pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of marital status",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Marital Status"
+                ],
+                "summary": "Atualiza estado civil espec\u00edfico do banco de dados.",
+                "description": "Atualiza estado civil pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of marital status",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Marital Status"
+                ],
+                "summary": "Remove estado civil espec\u00edfico do banco de dados.",
+                "description": "Deleta estado civil pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of marital status",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/nationalities": {
+            "get": {
+                "tags": [
+                    "Nacionality"
+                ],
+                "summary": "Exibe listagem de nacionalidades.",
+                "description": "Obter todas as nacionalidades.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Nacionality"
+                ],
+                "summary": "Armazena nacionalidade rec\u00e9m-criado no banco de dados",
+                "description": "Armazena uma nacionalidade",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/nationalities/{id}": {
+            "get": {
+                "tags": [
+                    "Nacionality"
+                ],
+                "summary": "Exibe nacionalidade espec\u00edfica.",
+                "description": "Obter nacionalidade pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of nacionality",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Nacionality"
+                ],
+                "summary": "Atualiza nacionalidade espec\u00edfica do banco de dados.",
+                "description": "Atualiza nacionalidade pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of nacionality",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Nacionality"
+                ],
+                "summary": "Remove nacionalidade espec\u00edfica do banco de dados.",
+                "description": "Deleta nacionalidade pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of nacionality",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/occupations": {
+            "get": {
+                "tags": [
+                    "Occupation"
+                ],
+                "summary": "Exibe listagem de ocupa\u00e7\u00f5es.",
+                "description": "Obter todas as ocupa\u00e7\u00f5es.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Occupation"
+                ],
+                "summary": "Armazena ocupa\u00e7\u00e3o rec\u00e9m-criada no banco de dados",
+                "description": "Armazena uma ocupa\u00e7\u00e3o",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "political_office",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "educational_level_required",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "responsible_entity",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cbo_code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/occupations/{id}": {
+            "get": {
+                "tags": [
+                    "Occupation"
+                ],
+                "summary": "Exibe ocupa\u00e7\u00e3o espec\u00edfica.",
+                "description": "Obter ocupa\u00e7\u00e3o pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of occupation",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Occupation"
+                ],
+                "summary": "Atualiza ocupa\u00e7\u00e3o espec\u00edfica do banco de dados.",
+                "description": "Atualiza ocupa\u00e7\u00e3o pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of occupation",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "political_office",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "educational_level_required",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "responsible_entity",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cbo_code",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Occupation"
+                ],
+                "summary": "Remove ocupa\u00e7\u00e3o espec\u00edfica do banco de dados.",
+                "description": "Deleta ocupa\u00e7\u00e3o pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of occupation",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/parentages": {
+            "get": {
+                "tags": [
+                    "Parentage"
+                ],
+                "summary": "Exibe listagem de parentescos.",
+                "description": "Obter todos os parentescos.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/parentages/{id}": {
+            "get": {
+                "tags": [
+                    "Parentage"
+                ],
+                "summary": "Exibe parentesco espec\u00edfico.",
+                "description": "Obter parentesco pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of parentage",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/parentage-types": {
+            "get": {
+                "tags": [
+                    "Parentage Type"
+                ],
+                "summary": "Exibe listagem de tipos de parentesco.",
+                "description": "Obter todos os tipos de parentesco.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Parentage Type"
+                ],
+                "summary": "Armazena tipo de parentesco rec\u00e9m-criado no banco de dados",
+                "description": "Armazena um tipo de parentesco",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Recurso criado com sucesso."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/parentage-types/{id}": {
+            "get": {
+                "tags": [
+                    "Parentage Type"
+                ],
+                "summary": "Exibe tipo de parentesco espec\u00edfico.",
+                "description": "Obter tipo de parentesco pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Parentage Type"
+                ],
+                "summary": "Atualiza tipo de parentesco espec\u00edfico do banco de dados.",
+                "description": "Atualiza tipo de parentesco pelo seu respectivo id.",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of parentage type",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Parentage Type"
+                ],
+                "summary": "Remove tipo de parentesco espec\u00edfico do banco de dados.",
+                "description": "Deleta tipo de parentesco pelo seu respectivo id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of parentage type",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/tax-benefits": {
+            "get": {
+                "tags": [
+                    "TaxBenefit"
+                ],
+                "summary": "Exibe listagem de benef\u00edcios fiscais.",
+                "description": "Obter todos os benef\u00edcios fiscais.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/tax-benefits/{id}": {
+            "get": {
+                "tags": [
+                    "TaxBenefit"
+                ],
+                "summary": "Exibe benef\u00edcio fiscal espec\u00edfico.",
+                "description": "Obter benef\u00edcio fiscal pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of tax benefit",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/telephones": {
+            "get": {
+                "tags": [
+                    "Telephone"
+                ],
+                "summary": "Exibe listagem de telefones.",
+                "description": "Obter todos os telefones.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/telephones/{id}": {
+            "get": {
+                "tags": [
+                    "Telephone"
+                ],
+                "summary": "Exibe telefone espec\u00edfico.",
+                "description": "Obter telefone pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of telephone",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/work-contracts": {
+            "get": {
+                "tags": [
+                    "Work Contract"
+                ],
+                "summary": "Exibe listagem de contratos de trabalho.",
+                "description": "Obter todos os contratos de trabalho.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        },
+        "/work-contracts/{id}": {
+            "get": {
+                "tags": [
+                    "Work Contract"
+                ],
+                "summary": "Exibe contrato de trabalho espec\u00edfico.",
+                "description": "Obter contrato de trabalho pelo seu respectivo id.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of work contract",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Opera\u00e7\u00e3o bem sucedida."
+                    },
+                    "400": {
+                        "description": "Solicita\u00e7\u00e3o inv\u00e1lida."
+                    },
+                    "404": {
+                        "description": "Recurso n\u00e3o encontrado."
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
