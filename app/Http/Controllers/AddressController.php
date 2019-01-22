@@ -65,7 +65,7 @@ class AddressController extends Controller
      *      tags={"Address"},
      *      description="Obter endereço pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of address", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="address", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),

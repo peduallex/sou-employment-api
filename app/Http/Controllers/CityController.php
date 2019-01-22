@@ -49,7 +49,7 @@ class CityController extends Controller
      *      tags={"City"},
      *      description="Obter cidade pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of city", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="city", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),

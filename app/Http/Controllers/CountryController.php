@@ -49,12 +49,15 @@ class CountryController extends Controller
      *      summary="Armazena país recém-criado no banco de dados",
      *      tags={"Country"},
      *      description="Armazena um país",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="portuguese_name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="iso_alfa", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Country", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="123"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *              @SWG\Property(property="portuguese_name",type="string", example="portuguese name"),
+     *              @SWG\Property(property="iso_alfa",type="string", example="ABC"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -74,7 +77,7 @@ class CountryController extends Controller
      *      tags={"Country"},
      *      description="Obter país pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="country", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -96,13 +99,16 @@ class CountryController extends Controller
      *      summary="Atualiza país específico do banco de dados.",
      *      tags={"Country"},
      *      description="Atualiza país pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="portuguese_name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="iso_alfa", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="country", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Country", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="123"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *              @SWG\Property(property="portuguese_name",type="string", example="portuguese name"),
+     *              @SWG\Property(property="iso_alfa",type="string", example="ABC"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -135,6 +141,6 @@ class CountryController extends Controller
     public function destroy(Country $country)
     {
             $country->delete();
-            return ['País removido com sucesso!'];
+            return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

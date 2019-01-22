@@ -49,9 +49,12 @@ class IdentityTypeController extends Controller
      *      summary="Armazena tipo de documento recém-criado no banco de dados",
      *      tags={"Identity Type"},
      *      description="Armazena um tipo de documento",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Identity Type", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -71,7 +74,7 @@ class IdentityTypeController extends Controller
      *      tags={"Identity Type"},
      *      description="Obter tipo de documento pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of identity type", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="identity type", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -93,10 +96,13 @@ class IdentityTypeController extends Controller
      *      summary="Atualiza tipo de documento específico do banco de dados.",
      *      tags={"Identity Type"},
      *      description="Atualiza tipo de documento pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of identity type", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="identity type", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Identity Type", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -119,7 +125,7 @@ class IdentityTypeController extends Controller
      *      tags={"Identity Type"},
      *      description="Deleta tipo de documento pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of identity type", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="identity type", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -129,6 +135,6 @@ class IdentityTypeController extends Controller
     public function destroy(IdentityType $identityType)
     {
         $identityType->delete();
-        return ['Recurso removido com sucesso!'];
+        return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }
