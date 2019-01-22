@@ -50,10 +50,13 @@ class DepartmentController extends Controller
      *      summary="Armazena departamento recém-criado no banco de dados",
      *      tags={"Department"},
      *      description="Armazena um departamento",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Department", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="1234567890"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -73,7 +76,7 @@ class DepartmentController extends Controller
      *      tags={"Department"},
      *      description="Obter departamento pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of department", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="department", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -95,11 +98,14 @@ class DepartmentController extends Controller
      *      summary="Atualiza departamento específico do banco de dados.",
      *      tags={"Department"},
      *      description="Atualiza departamento pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of department", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="department", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Department", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="1234567890"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -122,7 +128,7 @@ class DepartmentController extends Controller
      *      tags={"Department"},
      *      description="Deleta departamento pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of department", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="department", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -132,6 +138,6 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
             $department->delete();
-            return ['Recurso removido com sucesso!'];
+            return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

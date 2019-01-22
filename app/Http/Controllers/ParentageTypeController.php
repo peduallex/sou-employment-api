@@ -49,9 +49,12 @@ class ParentageTypeController extends Controller
      *      summary="Armazena tipo de parentesco recém-criado no banco de dados",
      *      tags={"Parentage Type"},
      *      description="Armazena um tipo de parentesco",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Parentage Type", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -71,7 +74,7 @@ class ParentageTypeController extends Controller
      *      tags={"Parentage Type"},
      *      description="Obter tipo de parentesco pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="parentage type", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -93,10 +96,13 @@ class ParentageTypeController extends Controller
      *      summary="Atualiza tipo de parentesco específico do banco de dados.",
      *      tags={"Parentage Type"},
      *      description="Atualiza tipo de parentesco pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of parentage type", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="parentage type", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Parentage Type", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -106,7 +112,7 @@ class ParentageTypeController extends Controller
     public function update(ParentageTypeRequest $request, ParentageType $parentageType)
     {
         $parentageType->update($request->all());
-        return ['Recurso atualizado com sucesso!'];
+        return new ParentageTypeResource($parentageType);
     }
 
     /**
@@ -119,7 +125,7 @@ class ParentageTypeController extends Controller
      *      tags={"Parentage Type"},
      *      description="Deleta tipo de parentesco pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of parentage type", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="parentage type", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -129,6 +135,6 @@ class ParentageTypeController extends Controller
     public function destroy(ParentageType $parentageType)
     {
         $parentageType->delete();
-        return ['Recurso removido com sucesso!'];
+        return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

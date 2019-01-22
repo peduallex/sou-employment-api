@@ -50,7 +50,7 @@ class IdentityController extends Controller
      *      tags={"Identity"},
      *      description="Obter documento pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of identity", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="identity", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),

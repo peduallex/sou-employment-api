@@ -249,7 +249,7 @@ class EmployeeController extends Controller
      *      tags={"Employee"},
      *      description="Obter colaborador pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of employee", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="employee", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -454,7 +454,7 @@ class EmployeeController extends Controller
 
         $employee->update($request->all());
 
-        return response()->json(['message'=>'Recurso atualizado com sucesso!']);
+        return new EmployeeResource($employee);
     }
 
     /**

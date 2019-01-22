@@ -51,7 +51,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of address",
+                        "description": "address",
                         "required": true,
                         "type": "integer"
                     }
@@ -109,7 +109,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of city",
+                        "description": "city",
                         "required": true,
                         "type": "integer"
                     }
@@ -158,18 +158,21 @@
                 ],
                 "summary": "Armazena regime de contrata\u00e7\u00e3o rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um regime de contrata\u00e7\u00e3o",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Contracting Regime",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -196,7 +199,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "contracting regime",
                         "required": true,
                         "type": "integer"
                     }
@@ -222,9 +225,6 @@
                 ],
                 "summary": "Atualiza regime de contrata\u00e7\u00e3o espec\u00edfico do banco de dados.",
                 "description": "Atualiza regime de contrata\u00e7\u00e3o pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -232,15 +232,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "contracting regime",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Contracting Regime",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -271,7 +277,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "contracting regime",
                         "required": true,
                         "type": "integer"
                     }
@@ -320,36 +326,33 @@
                 ],
                 "summary": "Armazena pa\u00eds rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um pa\u00eds",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "portuguese_name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "iso_alfa",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Country",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "123"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "portuguese_name": {
+                                    "type": "string",
+                                    "example": "portuguese name"
+                                },
+                                "iso_alfa": {
+                                    "type": "string",
+                                    "example": "ABC"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -376,7 +379,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "country",
                         "required": true,
                         "type": "integer"
                     }
@@ -402,9 +405,6 @@
                 ],
                 "summary": "Atualiza pa\u00eds espec\u00edfico do banco de dados.",
                 "description": "Atualiza pa\u00eds pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -412,33 +412,33 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "country",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "portuguese_name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "iso_alfa",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Country",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "123"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "portuguese_name": {
+                                    "type": "string",
+                                    "example": "portuguese name"
+                                },
+                                "iso_alfa": {
+                                    "type": "string",
+                                    "example": "ABC"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -518,24 +518,25 @@
                 ],
                 "summary": "Armazena departamento rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um departamento",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Department",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "1234567890"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -562,7 +563,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of department",
+                        "description": "department",
                         "required": true,
                         "type": "integer"
                     }
@@ -588,9 +589,6 @@
                 ],
                 "summary": "Atualiza departamento espec\u00edfico do banco de dados.",
                 "description": "Atualiza departamento pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -598,21 +596,25 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of department",
+                        "description": "department",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Department",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "1234567890"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -643,7 +645,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of department",
+                        "description": "department",
                         "required": true,
                         "type": "integer"
                     }
@@ -701,7 +703,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of dependent",
+                        "description": "dependent",
                         "required": true,
                         "type": "integer"
                     }
@@ -750,18 +752,21 @@
                 ],
                 "summary": "Armazena tipo de dependente rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um pa\u00eds",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Dependent Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -788,7 +793,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of dependent type",
+                        "description": "dependent type",
                         "required": true,
                         "type": "integer"
                     }
@@ -814,9 +819,6 @@
                 ],
                 "summary": "Atualiza tipo de dependente espec\u00edfico do banco de dados.",
                 "description": "Atualiza tipo de dependente pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -824,15 +826,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of dependent type",
+                        "description": "dependent type",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Dependent Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -863,7 +871,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of dependent type",
+                        "description": "dependent type",
                         "required": true,
                         "type": "integer"
                     }
@@ -921,7 +929,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of education",
+                        "description": "education",
                         "required": true,
                         "type": "integer"
                     }
@@ -979,7 +987,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of email",
+                        "description": "email",
                         "required": true,
                         "type": "integer"
                     }
@@ -1434,7 +1442,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of employee",
+                        "description": "employee",
                         "required": true,
                         "type": "integer"
                     }
@@ -1887,7 +1895,7 @@
                                             },
                                             "work_contract_id": {
                                                 "type": "integer",
-                                                "example": "1"
+                                                "example": "51"
                                             }
                                         },
                                         "type": "object"
@@ -1925,7 +1933,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "employee",
                         "required": true,
                         "type": "integer"
                     }
@@ -1974,24 +1982,25 @@
                 ],
                 "summary": "Armazena etnia rec\u00e9m-criada no banco de dados",
                 "description": "Armazena uma etnia",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "description",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Ethnicity",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "description"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2018,7 +2027,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of ethnicity",
+                        "description": "ethnicity",
                         "required": true,
                         "type": "integer"
                     }
@@ -2044,9 +2053,6 @@
                 ],
                 "summary": "Atualiza etnia espec\u00edfica do banco de dados.",
                 "description": "Atualiza etnia pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2054,21 +2060,25 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of ethnicity",
+                        "description": "ethnicity",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "description",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Ethnicity",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "description"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2099,7 +2109,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of ethnicity",
+                        "description": "ethnicity",
                         "required": true,
                         "type": "integer"
                     }
@@ -2157,7 +2167,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of identity",
+                        "description": "identity",
                         "required": true,
                         "type": "integer"
                     }
@@ -2206,18 +2216,21 @@
                 ],
                 "summary": "Armazena tipo de documento rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um tipo de documento",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Identity Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2244,7 +2257,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of identity type",
+                        "description": "identity type",
                         "required": true,
                         "type": "integer"
                     }
@@ -2270,9 +2283,6 @@
                 ],
                 "summary": "Atualiza tipo de documento espec\u00edfico do banco de dados.",
                 "description": "Atualiza tipo de documento pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2280,15 +2290,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of identity type",
+                        "description": "identity type",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Identity Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2319,7 +2335,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of identity type",
+                        "description": "identity type",
                         "required": true,
                         "type": "integer"
                     }
@@ -2368,18 +2384,21 @@
                 ],
                 "summary": "Armazena entidade emissora rec\u00e9m-criada no banco de dados",
                 "description": "Armazena uma entidade emissora",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Issuing Entity",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2406,7 +2425,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of issuing entity",
+                        "description": "issuing entity",
                         "required": true,
                         "type": "integer"
                     }
@@ -2432,9 +2451,6 @@
                 ],
                 "summary": "Atualiza entidade emissora espec\u00edfica do banco de dados.",
                 "description": "Atualiza entidade emissora pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2442,15 +2458,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of issuing entity",
+                        "description": "issuing entity",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Issuing Entity",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2481,7 +2503,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of issuing entity",
+                        "description": "issuing entity",
                         "required": true,
                         "type": "integer"
                     }
@@ -2530,18 +2552,21 @@
                 ],
                 "summary": "Armazena estado civil rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um estado civil",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Marital Status",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2568,7 +2593,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of marital status",
+                        "description": "marital status",
                         "required": true,
                         "type": "integer"
                     }
@@ -2594,9 +2619,6 @@
                 ],
                 "summary": "Atualiza estado civil espec\u00edfico do banco de dados.",
                 "description": "Atualiza estado civil pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2604,15 +2626,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of marital status",
+                        "description": "marital status",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Marital Status",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2643,7 +2671,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of marital status",
+                        "description": "marital status",
                         "required": true,
                         "type": "integer"
                     }
@@ -2692,18 +2720,21 @@
                 ],
                 "summary": "Armazena nacionalidade rec\u00e9m-criado no banco de dados",
                 "description": "Armazena uma nacionalidade",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Nacionality",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2730,7 +2761,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of nacionality",
+                        "description": "nacionality",
                         "required": true,
                         "type": "integer"
                     }
@@ -2756,9 +2787,6 @@
                 ],
                 "summary": "Atualiza nacionalidade espec\u00edfica do banco de dados.",
                 "description": "Atualiza nacionalidade pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2766,15 +2794,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of nacionality",
+                        "description": "nacionality",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Nacionality",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2805,7 +2839,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of nacionality",
+                        "description": "nacionality",
                         "required": true,
                         "type": "integer"
                     }
@@ -2854,48 +2888,41 @@
                 ],
                 "summary": "Armazena ocupa\u00e7\u00e3o rec\u00e9m-criada no banco de dados",
                 "description": "Armazena uma ocupa\u00e7\u00e3o",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "political_office",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "educational_level_required",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "responsible_entity",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "cbo_code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Occupation",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "12345678901234567890"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "political_office": {
+                                    "type": "string",
+                                    "example": "P"
+                                },
+                                "educational_level_required": {
+                                    "type": "string",
+                                    "example": "educational"
+                                },
+                                "responsible_entity": {
+                                    "type": "string",
+                                    "example": "R"
+                                },
+                                "cbo_code": {
+                                    "type": "string",
+                                    "example": "12345678901234567890"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -2922,7 +2949,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of occupation",
+                        "description": "occupation",
                         "required": true,
                         "type": "integer"
                     }
@@ -2948,9 +2975,6 @@
                 ],
                 "summary": "Atualiza ocupa\u00e7\u00e3o espec\u00edfica do banco de dados.",
                 "description": "Atualiza ocupa\u00e7\u00e3o pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -2958,45 +2982,41 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of occupation",
+                        "description": "occupation",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "political_office",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "educational_level_required",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "responsible_entity",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "cbo_code",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Occupation",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "12345678901234567890"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                },
+                                "political_office": {
+                                    "type": "string",
+                                    "example": "P"
+                                },
+                                "educational_level_required": {
+                                    "type": "string",
+                                    "example": "educational"
+                                },
+                                "responsible_entity": {
+                                    "type": "string",
+                                    "example": "R"
+                                },
+                                "cbo_code": {
+                                    "type": "string",
+                                    "example": "12345678901234567890"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -3027,7 +3047,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of occupation",
+                        "description": "occupation",
                         "required": true,
                         "type": "integer"
                     }
@@ -3085,7 +3105,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of parentage",
+                        "description": "parentage",
                         "required": true,
                         "type": "integer"
                     }
@@ -3134,18 +3154,21 @@
                 ],
                 "summary": "Armazena tipo de parentesco rec\u00e9m-criado no banco de dados",
                 "description": "Armazena um tipo de parentesco",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Parentage Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -3172,7 +3195,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of country",
+                        "description": "parentage type",
                         "required": true,
                         "type": "integer"
                     }
@@ -3198,9 +3221,6 @@
                 ],
                 "summary": "Atualiza tipo de parentesco espec\u00edfico do banco de dados.",
                 "description": "Atualiza tipo de parentesco pelo seu respectivo id.",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -3208,15 +3228,21 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of parentage type",
+                        "description": "parentage type",
                         "required": true,
                         "type": "integer"
                     },
                     {
-                        "name": "name",
-                        "in": "formData",
-                        "required": true,
-                        "type": "string"
+                        "name": "Parentage Type",
+                        "in": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "name"
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -3247,7 +3273,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of parentage type",
+                        "description": "parentage type",
                         "required": true,
                         "type": "integer"
                     }
@@ -3305,7 +3331,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of tax benefit",
+                        "description": "tax benefit",
                         "required": true,
                         "type": "integer"
                     }
@@ -3363,7 +3389,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of telephone",
+                        "description": "telephone",
                         "required": true,
                         "type": "integer"
                     }
@@ -3421,7 +3447,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id of work contract",
+                        "description": "work contract",
                         "required": true,
                         "type": "integer"
                     }
