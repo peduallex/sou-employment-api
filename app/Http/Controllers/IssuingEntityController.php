@@ -49,9 +49,12 @@ class IssuingEntityController extends Controller
      *      summary="Armazena entidade emissora recém-criada no banco de dados",
      *      tags={"Issuing Entity"},
      *      description="Armazena uma entidade emissora",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Issuing Entity", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -71,7 +74,7 @@ class IssuingEntityController extends Controller
      *      tags={"Issuing Entity"},
      *      description="Obter entidade emissora pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of issuing entity", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="issuing entity", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -93,10 +96,13 @@ class IssuingEntityController extends Controller
      *      summary="Atualiza entidade emissora específica do banco de dados.",
      *      tags={"Issuing Entity"},
      *      description="Atualiza entidade emissora pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of issuing entity", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="issuing entity", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Issuing Entity", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -106,7 +112,7 @@ class IssuingEntityController extends Controller
     public function update(IssuingEntityRequest $request, IssuingEntity $issuingEntity)
     {
         $issuingEntity->update($request->all());
-        return ['Recurso atualizado com sucesso!'];
+        return new IssuingEntityResource($issuingEntity);
     }
 
     /**
@@ -119,7 +125,7 @@ class IssuingEntityController extends Controller
      *      tags={"Issuing Entity"},
      *      description="Deleta entidade emissora pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of issuing entity", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="issuing entity", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -129,6 +135,6 @@ class IssuingEntityController extends Controller
     public function destroy(IssuingEntity $issuingEntity)
     {
         $issuingEntity->delete();
-        return ['Recurso removido com sucesso!'];
+        return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

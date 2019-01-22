@@ -50,7 +50,7 @@ class EducationController extends Controller
      *      tags={"Education"},
      *      description="Obter escolaridade pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of education", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="education", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),

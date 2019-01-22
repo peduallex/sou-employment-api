@@ -49,14 +49,17 @@ class OccupationController extends Controller
      *      summary="Armazena ocupação recém-criada no banco de dados",
      *      tags={"Occupation"},
      *      description="Armazena uma ocupação",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="political_office", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="educational_level_required", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="responsible_entity", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="cbo_code", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Occupation", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="12345678901234567890"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *              @SWG\Property(property="political_office",type="string", example="P"),
+     *              @SWG\Property(property="educational_level_required",type="string", example="educational"),
+     *              @SWG\Property(property="responsible_entity",type="string", example="R"),
+     *              @SWG\Property(property="cbo_code",type="string", example="12345678901234567890"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -76,7 +79,7 @@ class OccupationController extends Controller
      *      tags={"Occupation"},
      *      description="Obter ocupação pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of occupation", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="occupation", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -98,15 +101,18 @@ class OccupationController extends Controller
      *      summary="Atualiza ocupação específica do banco de dados.",
      *      tags={"Occupation"},
      *      description="Atualiza ocupação pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of occupation", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="code", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="political_office", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="educational_level_required", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="responsible_entity", in="formData", required=true, type="string"),
-     *      @SWG\Parameter(name="cbo_code", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="occupation", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Occupation", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="code",type="string", example="12345678901234567890"),
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *              @SWG\Property(property="political_office",type="string", example="P"),
+     *              @SWG\Property(property="educational_level_required",type="string", example="educational"),
+     *              @SWG\Property(property="responsible_entity",type="string", example="R"),
+     *              @SWG\Property(property="cbo_code",type="string", example="12345678901234567890"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -116,7 +122,7 @@ class OccupationController extends Controller
     public function update(OccupationRequest $request, Occupation $occupation)
     {
         $occupation->update($request->all());
-        return ['Recurso atualizado com sucesso!'];
+        return new OccupationResource($occupation);
     }
 
     /**
@@ -129,7 +135,7 @@ class OccupationController extends Controller
      *      tags={"Occupation"},
      *      description="Deleta ocupação pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of occupation", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="occupation", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -139,6 +145,6 @@ class OccupationController extends Controller
     public function destroy(Occupation $occupation)
     {
         $occupation->delete();
-        return ['Recurso removido com sucesso!'];
+        return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

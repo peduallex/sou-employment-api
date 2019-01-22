@@ -49,9 +49,12 @@ class ContractingRegimeController extends Controller
      *      summary="Armazena regime de contratação recém-criado no banco de dados",
      *      tags={"Contracting Regime"},
      *      description="Armazena um regime de contratação",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Contracting Regime", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -71,7 +74,7 @@ class ContractingRegimeController extends Controller
      *      tags={"Contracting Regime"},
      *      description="Obter regime de contratação pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="contracting regime", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -93,10 +96,13 @@ class ContractingRegimeController extends Controller
      *      summary="Atualiza regime de contratação específico do banco de dados.",
      *      tags={"Contracting Regime"},
      *      description="Atualiza regime de contratação pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="contracting regime", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Contracting Regime", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -105,8 +111,8 @@ class ContractingRegimeController extends Controller
      */
     public function update(ContractingRegimeRequest $request, ContractingRegime $contractingRegime)
     {
-            $contractingRegime->update($request->all());
-            return ['Recurso atualizado com sucesso!'];
+        $contractingRegime->update($request->all());
+        return new ContractingRegimeResource($contractingRegime);
     }
 
     /**
@@ -119,7 +125,7 @@ class ContractingRegimeController extends Controller
      *      tags={"Contracting Regime"},
      *      description="Deleta regime de contratação pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of country", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="contracting regime", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -128,7 +134,7 @@ class ContractingRegimeController extends Controller
      */
     public function destroy(ContractingRegime $contractingRegime)
     {
-            $contractingRegime->delete();
-            return ['Recurso removido com sucesso!'];
+        $contractingRegime->delete();
+        return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }

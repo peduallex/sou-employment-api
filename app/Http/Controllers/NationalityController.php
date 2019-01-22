@@ -49,9 +49,12 @@ class NationalityController extends Controller
      *      summary="Armazena nacionalidade recém-criado no banco de dados",
      *      tags={"Nacionality"},
      *      description="Armazena uma nacionalidade",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="Nacionality", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=201, description="Recurso criado com sucesso."),
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
@@ -71,7 +74,7 @@ class NationalityController extends Controller
      *      tags={"Nacionality"},
      *      description="Obter nacionalidade pelo seu respectivo id.",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of nacionality", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="nacionality", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -93,10 +96,13 @@ class NationalityController extends Controller
      *      summary="Atualiza nacionalidade específica do banco de dados.",
      *      tags={"Nacionality"},
      *      description="Atualiza nacionalidade pelo seu respectivo id.",
-     *      consumes={"application/x-www-form-urlencoded"},
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of nacionality", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="name", in="formData", required=true, type="string"),
+     *      @SWG\Parameter(name="id", description="nacionality", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Nacionality", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="name",type="string", example="name"),
+     *          ),
+     *      ),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -106,7 +112,7 @@ class NationalityController extends Controller
     public function update(NationalityRequest $request, Nationality $nationality)
     {
             $nationality->update($request->all());
-            return ['Recurso atualizado com sucesso!'];
+            return new NationalityResource($nationality);
     }
 
     /**
@@ -119,7 +125,7 @@ class NationalityController extends Controller
      *      tags={"Nacionality"},
      *      description="Deleta nacionalidade pelo seu respectivo id",
      *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="id of nacionality", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="id", description="nacionality", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
      *      @SWG\Response(response=404, description="Recurso não encontrado."),
@@ -129,6 +135,6 @@ class NationalityController extends Controller
     public function destroy(Nationality $nationality)
     {
          $nationality->delete();
-         return ['Recurso removido com sucesso!'];
+         return response()->json(['message' => 'Recurso removido com sucesso!']);
     }
 }
