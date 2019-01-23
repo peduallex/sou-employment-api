@@ -10,8 +10,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-      /*$this->call(CityTableSeeder::class);
+    {  
+        $this->call(CityTableSeeder::class);
         $this->call(ContractingRegimeTableSeeder::class);
         $this->call(CountryTableSeeder::class);
         $this->call(NationalityTableSeeder::class);
@@ -25,15 +25,13 @@ class DatabaseSeeder extends Seeder
         $this->call(ParentageTypeTableSeeder::class);
         $this->call(EmailTableSeeder::class);
         $this->call(TelephoneTableSeeder::class);
-        */
-        //$this->call(AddressTableSeeder::class);
-        //$this->call(EmployeeTableSeeder::class);
-        //$this->call(DependentTableSeeder::class);
-        //$this->call(EducationTableSeeder::class);
-        //$this->call(IdentityTableSeeder::class);
-        //$this->call(ParentageTableSeeder::class);
-        //$this->call(WorkContractTableSeeder::class);
-        //$this->call(TaxBenefitTableSeeder::class);
-
+        $this->call(AddressTableSeeder::class);
+        $this->call(EmployeeTableSeeder::class);
+        $this->call(DependentTableSeeder::class);
+        $this->call(EducationTableSeeder::class);
+        $this->call(IdentityTableSeeder::class);
+        $this->call(ParentageTableSeeder::class);
+        $this->call(WorkContractTableSeeder::class);
+        $this->call(TaxBenefitTableSeeder::class);
     }
 }

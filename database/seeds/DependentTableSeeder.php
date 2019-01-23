@@ -11,8 +11,11 @@ class DependentTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Models\Dependent', 50)->create()->each(function ($dependent){
-            $dependent->dependent_type()-save(factory(App\Models\Dependent::class)->make());
+        $employees = App\Models\Employee::all();
+        $dependent_types = App\Models\DependentType::all();
+        factory('App\Models\Dependent', 50)->create()->each(function ($dependent) use ($employees, $dependent_types){
+            $dependent->employee_id = $employees->random()->employee_id;
+            $dependent->dependent_type_id = $dependent_types->random()->dependent_type_id;
         });
     }
 }

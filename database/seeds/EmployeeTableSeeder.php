@@ -11,15 +11,22 @@ class EmployeeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Models\Employee', 50)->create()->each(function ($employee){
-            $employee->department()->save(factory(App\Models\Employee::class)->make());
-            $employee->marital_status()->save(factory(App\Models\Employee::class)->make());
-            $employee->city()->save(factory(App\Models\Employee::class)->make());
-            $employee->country()->save(factory(App\Models\Employee::class)->make());
-            $employee->address()->save(factory(App\Models\Employee::class)->make());
-            $employee->ethnicity()->save(factory(App\Models\Employee::class)->make());
-            $employee->occupation()->save(factory(App\Models\Employee::class)->make());
-            $employee->nationality()->save(factory(App\Models\Employee::class)->make());
-        });
+      $departments = App\Models\Department::all();
+      $marital_statuses = App\Models\MaritalStatus::all();
+      $cities = App\Models\City::all();
+      $countries = App\Models\Country::all();
+      $ethnicities = App\Models\Ethnicity::all();
+      $occupations = App\Models\Occupation::all();
+      $nationalities = App\Models\Nationality::all();
+      factory('App\Models\Employee', 50)->create()->each(function ($employee) use (
+          $departments, $marital_statuses, $cities, $countries, $ethnicities, $occupations, $nationalities){            
+          $employee->department_id = $departments->random()->department_id;
+          $employee->marital_status_id = $marital_statuses->random()->marital_status_id;
+          $employee->city_id = $cities->random()->city_id;
+          $employee->country_id = $countries->random()->country_id;
+          $employee->ethnicity_id = $ethnicities->random()->ethnicity_id;
+          $employee->occupation_id = $ethnicities->random()->occupation_id;
+          $employee->nationality_id = $nationalities->random()->nationality_id;
+      });
     }
 }
