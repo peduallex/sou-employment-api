@@ -11,6 +11,9 @@ class EducationTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Models\Education', 50)->create();
+        $employees = App\Models\Employee::all();
+        factory('App\Models\Education', 50)->create()->each(function ($education) use ($employees){
+            $education->employee_id = $employees->random()->employee_id;
+        });
     }
 }

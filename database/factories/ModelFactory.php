@@ -4,206 +4,197 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Address::class, function (Faker $faker) {
     return [
-       'neighborhood'      => str_random(30),
-       'street'            => str_random(30),
-       'street_number'     => str_random(3),
-       'street_type'       => str_random(18),
-       'zipcode'           => str_random(8) ,
-       'street_complement' => str_random(30),
-       'state'             => str_random(2),
-       'city_id'           => App\Models\City::all()->random()->id,
+       'neighborhood'      => $faker->cityPrefix,
+       'street'            => $faker->streetName,
+       'street_number'     => $faker->buildingNumber,
+       'street_type'       => $faker->streetSuffix,
+       'zipcode'           => $faker->randomNumber($nbDigits = 7),
+       'street_complement' => $faker->secondaryAddress,
+       'state'             => $faker->stateAbbr,
+       'city_id'           => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\City::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
-       'state' => 'AA',
-       'code' => '1234567',
+       'name'  => $faker->city,
+       'state' => $faker->stateAbbr,
+       'code'  => $faker->randomNumber($nbDigits = 7),
     ];
 });
 
 $factory->define(App\Models\ContractingRegime::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->catchPhrase,
     ];
 });
 
 $factory->define(App\Models\Country::class, function (Faker $faker) {
     return [
-        'code' => '123',
+        'code' => $faker->randomNumber($nbDigits = 3),
         'name' => $faker->country,
-        'portuguese_name' => $faker->name,
-        'iso_alfa' => 'ISO',
+        'portuguese_name' => '$portuguese name',
+        'iso_alfa' => $faker->currencyCode,
     ];
 });
 
 $factory->define(App\Models\Department::class, function (Faker $faker) {
     return [
-        'code' => '1234567890',
-        'name' => $faker->name,
+        'code' => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+        'name' => $faker->catchPhrase,
     ];
 });
 
 $factory->define(App\Models\Dependent::class, function (Faker $faker) {
     return [
-       'name'              => str_random(30),
+       'name'              => $faker->name,
        'birth_date'        => $faker->date,
-       'cpf'               => str_random(14),
-       'employee_id'       => 1,
-       'dependent_type_id' => App\Models\DependentType::all()->random()->id,
+       'cpf'               => $faker->numberBetween($min = 00000000001, $max = 99999999999),
+       'employee_id'       => rand(1, 50),
+       'dependent_type_id' => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\DependentType::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->lexify('???????'),
     ];
 });
 
 $factory->define(App\Models\Education::class, function (Faker $faker) {
     return [
-       'course'                 => str_random(20),
-       'education_level'        => str_random(20),
-       'education_institution'  => str_random(30),
+       'course'                 => $faker->catchPhrase,
+       'education_level'        => $faker->suffix,
+       'education_institution'  => $faker->company,
        'starting_date'          => $faker->date,
        'finishing_date'         => $faker->date,
-       'employee_id'            => App\Models\Employee::all()->random()->id,
+       'employee_id'            => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\Email::class, function (Faker $faker) {
     return [
        'email'             => $faker->email,
-       'email_type'        => str_random(30),
+       'email_type'        => $faker->lexify('???????'),
     ];
 });
 
 $factory->define(App\Models\Employee::class, function (Faker $faker) {
     return [
-       'name'                  => $faker->name,
-       'last_name'             => $faker->name,
+       'name'                  => $faker->firstName($gender = 'male', 'female'),
+       'last_name'             => $faker->lastName,
        'birth_date'            => $faker->date,
-       'gender'                => 'G',
-       'cpf'                   => '123.456.789-14',
-       'blood_type'            => 'O+',
-       'organ_donor'           => true,
-       'assumed_name'          =>$faker->name,
-       'flag_pwd'              => true,
-       'flag_visually'         => true,
-       'flag_hearing'          => true,
-       'flag_physically'       => true,
-       'flag_intellectually'   => true,
-       'description_other_pwd' => true,
-       'first_job_ctps'        => 'fjc',
-       'first_job_public'      => 'fjp',
-       'icd'                   => '1234567890',
-       'department_id'         => App\Models\Department::all()->random()->id,
-       'marital_status_id'     => App\Models\MaritalStatus::all()->random()->id,
-       'city_id'               => App\Models\City::all()->random()->id,
-       'country_id'            => App\Models\Country::all()->random()->id,
-       'address_id'            => App\Models\Address::all()->random()->id,
-       'ethnicity_id'          => App\Models\Ethnicity::all()->random()->id,
-       'occupation_id'         => App\Models\Occupation::all()->random()->id,
-       'nationality_id'        => App\Models\Nationality::all()->random()->id,
+       'gender'                => $faker->randomLetter,
+       'cpf'                   => $faker->numberBetween($min = 00000000001, $max = 99999999999),
+       'blood_type'            => $faker->lexify('???'),
+       'organ_donor'           => $faker->boolean($chanceOfGettingTrue = 50),
+       'assumed_name'          => $faker->name,
+       'flag_pwd'              => $faker->boolean($chanceOfGettingTrue = 50),
+       'flag_visually'         => $faker->boolean($chanceOfGettingTrue = 50),
+       'flag_hearing'          => $faker->boolean($chanceOfGettingTrue = 50),
+       'flag_physically'       => $faker->boolean($chanceOfGettingTrue = 50),
+       'flag_intellectually'   => $faker->boolean($chanceOfGettingTrue = 50),
+       'description_other_pwd' => $faker->text($maxNbChars = 200),
+       'first_job_ctps'        => $faker->lexify('????'),
+       'first_job_public'      => $faker->lexify('????'),
+       'icd'                   => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+       'department_id'         => rand(1, 50),
+       'marital_status_id'     => rand(1, 50),
+       'city_id'               => rand(1, 50),
+       'country_id'            => rand(1, 50),
+       'address_id'            => rand(1, 50),
+       'ethnicity_id'          => rand(1, 50),
+       'occupation_id'         => rand(1, 50),
+       'nationality_id'        => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\Ethnicity::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
-       'description' => 'description',
+       'name' => $faker->word,
+       'description' => $faker->text($maxNbChars = 30),
     ];
 });
 
 $factory->define(App\Models\Identity::class, function (Faker $faker) {
     return [
        'date_issued'       => $faker->date,
-       'description'       => str_random(30),
-       'number'            => str_random(30),
-       'series_number'     => str_random(10),
-       'state_issued'      => str_random(2),
-       'zone'              => str_random(6),
-       'section'           => str_random(6),
-       'identity_type_id'  => App\Models\IdentityType::all()->random()->id,
-       'issuing_entity_id' => App\Models\IssuingEntity::all()->random()->id,
+       'description'       => $faker->text($maxNbChars = 30),
+       'number'            => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+       'series_number'     => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+       'state_issued'      => $faker->stateAbbr,
+       'zone'              => $faker->lexify('??????'),
+       'section'           => $faker->lexify('??????'),
+       'identity_type_id'  => rand(1, 50),
+       'issuing_entity_id' => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\IdentityType::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Models\IssuingEntity::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Models\MaritalStatus::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Models\Nationality::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Models\Occupation::class, function (Faker $faker) {
     return [
-       'code'                       => '12345678901234567890',
-       'name'                       => $faker->name,
-       'political_office'           => 'P',
-       'educational_level_required' => 'educational',
-       'responsible_entity'         => 'R',
-       'cbo_code'                   => '12345678901234567890',
+       'code'                       => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+       'name'                       => $faker->word,
+       'political_office'           => $faker->randomLetter,
+       'educational_level_required' => $faker->suffix,
+       'responsible_entity'         => $faker->randomLetter,
+       'cbo_code'                   => $faker->numberBetween($min = 0000000001, $max = 9999999999),
     ];
 });
 
 $factory->define(App\Models\Parentage::class, function (Faker $faker) {
     return [
-       'name'              => str_random(30),
-       'gender'            => str_random(1),
+       'name'              => $faker->word,
+       'gender'            => $faker->randomLetter,
        'birth_date'        => $faker->date,
-       'parentage_type_id' => App\Models\ParentageType::all()->random()->id,
+       'parentage_type_id' => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\ParentageType::class, function (Faker $faker) {
     return [
-       'name' => $faker->name,
+       'name' => $faker->word,
     ];
 });
 
 $factory->define(App\Models\TaxBenefit::class, function (Faker $faker) {
     return [
-       'code'             => '1234567890',
-       'name'             => $faker->name,
-       'value'            => 15.2,
-       'work_contract_id' => App\Models\WorkContract::all()->random()->id,
+       'code'             => $faker->numberBetween($min = 0000000001, $max = 9999999999),
+       'name'             => $faker->bs,
+       'value'            => $faker->randomFloat($nbMaxDecimals = 5, $min = 1, $max = 99999),
+       'work_contract_id' => rand(1, 50),
     ];
 });
 
 $factory->define(App\Models\Telephone::class, function (Faker $faker) {
     return [
-       'ddd'               => str_random(4),
-       'telephone'         => '(011)1234-5678',
-       'telephone_type'    => str_random(20),
-       'ddi'               => str_random(6),
-    ];
-});
-
-$factory->define(App\Models\User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+       'ddd'               => $faker->randomNumber($nbDigits = 3),
+       'telephone'         => $faker->tollFreePhoneNumber,
+       'telephone_type'    => $faker->word,
+       'ddi'               => $faker->randomNumber($nbDigits = 3),
     ];
 });
 
@@ -213,12 +204,12 @@ $factory->define(App\Models\WorkContract::class, function (Faker $faker) {
         'end_date'              => $faker->date,
         'examination_date'      => $faker->date,
         'dismissal_date'        => $faker->date,
-        'flag_fixed_term'       => str_random(1) ,
-        'term'                  => 123456789,
+        'flag_fixed_term'       => $faker->randomLetter,
+        'term'                  => $faker->numberBetween($min = 000000001, $max = 999999999),
         'new_end_date'          => $faker->date,
-        'new_term'              => 123456789,
-        'contracting_regime_id' => App\Models\ContractingRegime::all()->random()->id,
-        'address_id'            => App\Models\Address::all()->random()->id,
-        'employee_id'           => App\Models\Employee::all()->random()->id,
+        'new_term'              => $faker->numberBetween($min = 000000001, $max = 999999999),
+        'contracting_regime_id' => rand(1, 50),
+        'address_id'            => rand(1, 50),
+        'employee_id'           => rand(1, 50),
     ];
 });
