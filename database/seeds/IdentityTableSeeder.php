@@ -11,9 +11,12 @@ class IdentityTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Models\Identity', 50)->create()->each(function ($identity){
-            $identity->identity_type()->save(factory(App\Models\Identity::class)->make());
-            $identity->issuing_entity()->save(factory(App\Models\Identity::class)->make());
+        $identity_types = App\Models\IdentityType::all();
+        $issuing_entities = App\Models\IssuingEntity::all();
+        factory('App\Models\Identity', 50)->create()->each(function ($identity) use (
+            $identity_types, $issuing_entities){
+            $identity->identity_type_id = $identity_types->random()->identity_type_id;
+            $identity->issuing_entity_id = $issuing_entities->random()->issuing_entity_id;
         });
     }
 }

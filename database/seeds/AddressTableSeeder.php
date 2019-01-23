@@ -11,8 +11,9 @@ class AddressTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Models\Address', 50)->create()->each(function ($address){
-            $address->city()-save(factory(App\Models\Address::class)->make());
+        $cities = App\Models\City::all();
+        factory('App\Models\Address', 50)->create()->each(function ($address) use ($cities){
+            $address->city_id = $cities->random()->city_id;
         });
     }
 }
