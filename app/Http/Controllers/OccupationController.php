@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Occupation;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Requests\OccupationRequest;
 use App\Http\Resources\OccupationResource;
 use App\Repositories\Repository;
 
@@ -93,7 +92,7 @@ class OccupationController extends Controller
 
     /**
      * @param Occupation $occupation
-     * @param OccupationRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Put(
@@ -119,7 +118,7 @@ class OccupationController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(OccupationRequest $request, Occupation $occupation)
+    public function update(Request $request, Occupation $occupation)
     {
         $occupation->update($request->all());
         return new OccupationResource($occupation);
