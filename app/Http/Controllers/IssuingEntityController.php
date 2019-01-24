@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\IssuingEntity;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Requests\IssuingEntityRequest;
 use App\Http\Resources\IssuingEntityResource;
 use App\Repositories\Repository;
 
@@ -88,7 +87,7 @@ class IssuingEntityController extends Controller
 
     /**
      * @param IssuingEntity $issuingEntity
-     * @param IssuingEntityRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Put(
@@ -109,7 +108,7 @@ class IssuingEntityController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(IssuingEntityRequest $request, IssuingEntity $issuingEntity)
+    public function update(Request $request, IssuingEntity $issuingEntity)
     {
         $issuingEntity->update($request->all());
         return new IssuingEntityResource($issuingEntity);

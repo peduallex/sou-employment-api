@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Nationality;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Requests\NationalityRequest;
 use App\Http\Resources\NationalityResource;
 use App\Repositories\Repository;
 
@@ -41,7 +40,7 @@ class NationalityController extends Controller
     }
 
     /**
-     * @param NationalityRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Post(
@@ -59,7 +58,7 @@ class NationalityController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(NationalityRequest $request)
+    public function store(Request $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -88,7 +87,7 @@ class NationalityController extends Controller
 
     /**
      * @param Nationality $nationality
-     * @param NationalityRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Put(
@@ -109,7 +108,7 @@ class NationalityController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(NationalityRequest $request, Nationality $nationality)
+    public function update(Request $request, Nationality $nationality)
     {
             $nationality->update($request->all());
             return new NationalityResource($nationality);

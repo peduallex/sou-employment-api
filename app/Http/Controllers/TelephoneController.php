@@ -61,4 +61,36 @@ class TelephoneController extends Controller
     {
         return new TelephoneResource($telephone);
     }
+
+    /**
+     * @param Telephone $telephone
+     * @param TelephoneRequest $request
+     * @return Response
+     *
+     * @SWG\Put(
+     *      path="/telephones/{id}",
+     *      summary="Atualiza telefone específico do banco de dados.",
+     *      tags={"Telephone"},
+     *      description="Atualiza telefone pelo seu respectivo id.",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(name="id", description="telephone", type="integer", required=true, in="path"),
+     *      @SWG\Parameter(name="Telephone", in="body",
+     *          @SWG\Schema(
+     *              @SWG\Property(property="ddd", type="string", example="123"),
+     *              @SWG\Property(property="telephone", type="string", example="(11)1234-5678"),
+     *              @SWG\Property(property="telephone_type", type="string", example="telephone type"),
+     *              @SWG\Property(property="ddi", type="string", example="123"),
+     *          ),
+     *      ),
+     *      @SWG\Response(response=200, description="Operação bem sucedida."),
+     *      @SWG\Response(response=400, description="Solicitação inválida."),
+     *      @SWG\Response(response=404, description="Recurso não encontrado."),
+     *      @SWG\Response(response=500, description="Erro interno no servidor."),
+     * )
+     */
+    public function update(TelephoneRequest $request, Telephone $telephone)
+    {
+            $telephone->update($request->all());
+            return new TelephoneResource($telephone);
+    }
 }

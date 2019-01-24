@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\MaritalStatus;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Requests\MaritalStatusRequest;
 use App\Http\Resources\MaritalStatusResource;
 use App\Repositories\Repository;
 
@@ -41,7 +40,7 @@ class MaritalStatusController extends Controller
     }
 
     /**
-     * @param MaritalStatusRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Post(
@@ -59,7 +58,7 @@ class MaritalStatusController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(MaritalStatusRequest $request)
+    public function store(Request $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -88,7 +87,7 @@ class MaritalStatusController extends Controller
 
     /**
      * @param MaritalStatus $maritalStatus
-     * @param MaritalStatusRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Put(
@@ -109,7 +108,7 @@ class MaritalStatusController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(MaritalStatusRequest $request, MaritalStatus $maritalStatus)
+    public function update(Request $request, MaritalStatus $maritalStatus)
     {
         $maritalStatus->update($request->all());
         return new MaritalStatusResource($maritalStatus);
