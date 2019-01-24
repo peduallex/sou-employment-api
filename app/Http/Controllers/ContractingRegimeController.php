@@ -41,7 +41,7 @@ class ContractingRegimeController extends Controller
     }
 
     /**
-     * @param ContractingRegimeRequest $request
+     * @param Request $request
      * @return Response
      *
      * @SWG\Post(
@@ -59,7 +59,7 @@ class ContractingRegimeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(ContractingRegimeRequest $request)
+    public function store(Request $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -109,7 +109,7 @@ class ContractingRegimeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(ContractingRegimeRequest $request, ContractingRegime $contractingRegime)
+    public function update(Request $request, ContractingRegime $contractingRegime)
     {
         $contractingRegime->update($request->all());
         return new ContractingRegimeResource($contractingRegime);

@@ -15,9 +15,10 @@ class TaxBenefitResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'         => $this->id,
-            'code'       => $this->code,
-            'value'      => $this->value,
+            'id'            => $this->id,
+            'code'          => $this->code,
+            'value'         => $this->value,
+            'work_contract_id' => $this->work_contract_id
         ];
     }
 }
