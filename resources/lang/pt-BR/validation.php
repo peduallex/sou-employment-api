@@ -138,6 +138,7 @@ return [
     'attributes' => [
         'address'                       => 'endereço',
         'age'                           => 'idade',
+        'birth_date'                    => 'data de nascimento',
         'body'                          => 'conteúdo',
         'cbo_code'                      => 'código cbo',
         'city'                          => 'cidade',
@@ -148,6 +149,7 @@ return [
         'description'                   => 'descrição',
         'educational_level_required'    => 'nível educacional requerido',
         'email'                         => 'e-mail',
+        'email_type'                    => 'tipo de e-mail',
         'excerpt'                       => 'resumo',
         'first_name'                    => 'primeiro nome',
         'gender'                        => 'gênero',
@@ -159,6 +161,7 @@ return [
         'mobile'                        => 'celular',
         'month'                         => 'mês',
         'name'                          => 'nome',
+        'neighborhood'                  => 'bairro',
         'password_confirmation'         => 'confirmação da senha',
         'password'                      => 'senha',
         'phone'                         => 'telefone',
@@ -169,12 +172,18 @@ return [
         'second'                        => 'segundo',
         'sex'                           => 'sexo',
         'state'                         => 'estado',
+        'street'                        => 'rua',
+        'street_number'                 => 'número da rua',
+        'street_type'                   => 'tipo de rua',
         'subject'                       => 'assunto',
+        'telephone'                     => 'telefone',
+        'telephone_type'                => 'tipo de telefone',
         'text'                          => 'texto',
         'time'                          => 'hora',
         'title'                         => 'título',
         'username'                      => 'usuário',
         'year'                          => 'ano',
+        'zipcode'                       => 'cep'
 
     ],
 ];

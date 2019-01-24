@@ -23,8 +23,6 @@ class ContractingRegimeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'   => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,100',
-        ];
+        return [];
     }
 }
