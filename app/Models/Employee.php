@@ -49,7 +49,6 @@ class Employee extends Model
         'address_id',
         'ethnicity_id',
         'occupation_id',
-        'nationality_id',
     ];
 
     /**
@@ -104,10 +103,6 @@ class Employee extends Model
      */
     public function occupation(){
         return $this->belongsTo(Occupation::class);
-    }
-
-    public function nationality(){
-        return $this->belongsTo(Nationality::class);
     }
 
     /**
