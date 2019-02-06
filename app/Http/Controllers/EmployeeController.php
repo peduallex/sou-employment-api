@@ -9,7 +9,6 @@ use App\Models\Education;
 use App\Models\Email;
 use App\Models\Employee;
 use App\Models\Identity;
-use App\Models\Nationality;
 use App\Models\Parentage;
 use App\Models\Telephone;
 use App\Models\TaxBenefit;
@@ -82,7 +81,6 @@ class EmployeeController extends Controller
      *              @SWG\Property(property="first_job_public",  type="string", example="fjp"),
      *              @SWG\Property(property="icd",  type="string", example="1234567893"),
      *              @SWG\Property(property="country_id",  type="integer", example="1"),
-     *              @SWG\Property(property="nationality_id",  type="integer", example="1"),
      *              @SWG\Property(property="ethnicity_id",  type="integer", example="1"),
      *              @SWG\Property(property="marital_status_id",  type="integer", example="1"),
      *              @SWG\Property(property="address",
@@ -179,57 +177,63 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request)
     {
         try{
-            $address = $request->input('address');
-            $city = $request->input('city');
-            $dependents = $request->input('dependents');
-            $education = $request->input('education');
-            $email = $request->input('email');
-            $employee = $request->all();
-            $identities = $request->input('identities');
-            $parentages = $request->input('parentages');
-            $taxBenefits = $request->input('tax_benefits');
-            $telephone = $request->input('telephone');
-            $workContract = $request->input('work_contract');
+            $employee = new Employee($request->only($this->model->getModel()->fillable));
 
-            $city = City::create($city);
+            $city = City::create($request->input('city'));
 
-            $address['city_id'] = $city->id;
-            $address = Address::create($address);
+            $address = new Address($request->input('address'));
+            $address->city()->associate($city);
+            $address->save();
 
-            $employee['city_id'] = $city->id;
-            $employee['address_id'] = $address->id;
-            $employee = Employee::create($employee);
+            $employee->address()->associate($address);
+            $employee->city()->associate($city);
+            $employee->save();
 
-            $telephone = Telephone::create($telephone);
+            $telephone = new Telephone($request->input('telephone'));
+            $telephone->save();
             $employee->telephones()->attach($telephone);
 
-            $email = Email::create($email);
+            $email = new Email($request->input('email'));
+            $email->save();
             $employee->emails()->attach($email);
 
-            foreach ($dependents as $dependent) {
-              $dependent['employee_id'] = $employee->id;
-              $dependent = Dependent::create($dependent);
+            $dependents = $request->input('dependents');
+            foreach ($dependents as $input) {
+              $dependent = new Dependent($input);
+              $dependent->employee()->associate($employee);
+              $dependent->save();
             }
 
-            $education['employee_id'] = $employee->id;
-            $education = Education::create($education);
+            $education = new Education($request->input('education'));
+            $education->employee()->associate($employee);
+            $education->save();
 
-            foreach ($parentages as $parentage) {
-                $employee->parentages()->attach(Parentage::create($parentage));
+            $parentages = $request->input('parentages');
+            foreach ($parentages as $input) {
+                $parentage = new Parentage($input);
+                $parentage->save();
+                $employee->parentages()->attach($parentage);
             }
 
-            foreach ($identities as $identity) {
-                $employee->identities()->attach(Identity::create($identity));
+            $identities = $request->input('identities');
+            foreach ($identities as $input) {
+                $identity = new Identity($input);
+                $identity->save();
+                $employee->identities()->attach($identity);
             }
 
-            $workContract['address_id'] = $address->id;
-            $workContract['employee_id'] = $employee->id;
-            $workContract = WorkContract::create($workContract);
+            $workContract = new WorkContract($request->input('work_contract'));
+            $workContract->address()->associate($address);
+            $workContract->employee()->associate($employee);
+            $workContract->save();
 
-            foreach ($taxBenefits as $taxBenefit) {
-                $taxBenefit['work_contract_id'] = $workContract->id;
-                $taxBenefit = TaxBenefit::create($taxBenefit);
+            $taxBenefits = $request->input('tax_benefits');
+            foreach ($taxBenefits as $input) {
+                $taxBenefit = new TaxBenefit($input);
+                $taxBenefit->work_contract()->associate($workContract);
+                $taxBenefit->save();
             }
+            $employee->update();
 
             return new EmployeeResource($employee);
 
