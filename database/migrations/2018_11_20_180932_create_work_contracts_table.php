@@ -19,7 +19,7 @@ class CreateWorkContractsTable extends Migration
             $table->date('end_date');
             $table->date('examination_date');
             $table->date('dismissal_date');
-            $table->char('flag_fixed_term', 1);
+            $table->boolean('flag_fixed_term');
             $table->integer('term');
             $table->date('new_end_date');
             $table->integer('new_term');

@@ -34,7 +34,6 @@ class EmployeeResource extends JsonResource
             'first_job_public'      => $this->first_job_public,
             'icd'                   => $this->icd,
             'country'               => $this->country,
-            'nationality'           => $this->nationality,
             'ethnicity'             => $this->ethnicity,
             'marital_status'        => $this->marital_status,
             'address'               => $this->address,

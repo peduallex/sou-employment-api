@@ -105,7 +105,6 @@ $factory->define(App\Models\Employee::class, function (Faker $faker) {
        'address_id'            => rand(1, 50),
        'ethnicity_id'          => rand(1, 50),
        'occupation_id'         => rand(1, 50),
-       'nationality_id'        => rand(1, 50),
     ];
 });
 
@@ -145,12 +144,6 @@ $factory->define(App\Models\IssuingEntity::class, function (Faker $faker) {
 $factory->define(App\Models\MaritalStatus::class, function (Faker $faker) {
     return [
        'name' => $faker->word,
-    ];
-});
-
-$factory->define(App\Models\Nationality::class, function (Faker $faker) {
-    return [
-        'name' => $faker->word,
     ];
 });
 
@@ -204,7 +197,7 @@ $factory->define(App\Models\WorkContract::class, function (Faker $faker) {
         'end_date'              => $faker->date,
         'examination_date'      => $faker->date,
         'dismissal_date'        => $faker->date,
-        'flag_fixed_term'       => $faker->randomLetter,
+        'flag_fixed_term'       => $faker->boolean($chanceOfGettingTrue = 50),
         'term'                  => $faker->numberBetween($min = 000000001, $max = 999999999),
         'new_end_date'          => $faker->date,
         'new_term'              => $faker->numberBetween($min = 000000001, $max = 999999999),
