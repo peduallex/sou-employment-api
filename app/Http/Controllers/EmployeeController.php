@@ -16,6 +16,7 @@ use App\Models\WorkContract;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\CityRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Repositories\Repository;
 
@@ -265,8 +266,8 @@ class EmployeeController extends Controller
     }
 
     /**
-     * @param Country $country
-     * @param CountryRequest $request
+     * @param Employee $employee
+     * @param EmployeeRequest $request
      * @return Response
      *
      * @SWG\Put(

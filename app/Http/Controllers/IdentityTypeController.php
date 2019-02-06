@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\IdentityType;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\IdentityTypeRequest;
 use App\Http\Resources\IdentityTypeResource;
 use App\Repositories\Repository;
 
@@ -40,7 +41,7 @@ class IdentityTypeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param IdentityTypeRequest $request
      * @return Response
      *
      * @SWG\Post(
@@ -58,7 +59,7 @@ class IdentityTypeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(Request $request)
+    public function store(IdentityTypeRequest $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -87,7 +88,7 @@ class IdentityTypeController extends Controller
 
     /**
      * @param IdentityType $identityType
-     * @param Request $request
+     * @param IdentityTypeRequest $request
      * @return Response
      *
      * @SWG\Put(
@@ -108,7 +109,7 @@ class IdentityTypeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(Request $request, IdentityType $identityType)
+    public function update(IdentityTypeRequest $request, IdentityType $identityType)
     {
         $identityType->update($request->all());
         return new IdentityTypeResource($identityType);

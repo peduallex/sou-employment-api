@@ -23,7 +23,6 @@ class EmployeeRequest extends FormRequest
      */
     public function rules()
     {
-<<<<<<< HEAD
         return [
             /**
              * Valida os campos de colaborador.
@@ -90,37 +89,37 @@ class EmployeeRequest extends FormRequest
             'dependents.*.birth_date'             => 'required|date',
             'dependents.*.cpf'                    => 'required|regex:/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/',
             'dependents.*.dependent_type_id'      => 'required',
-=======
-        $rules = [
-            'name'                                => 'required',
-            'last_name'                           => 'required',
-            'birth_date'                          => 'required',
-            'gender'                              => 'required',
-            'cpf'                                 => 'required',
-        ];
->>>>>>> 8a92183275e5ba70f04e7faac268c54568539c5c
 
-        if($this->has('id')){
+            /**
+             * Valida os campos da educação.
+             */
+            'education.course'                    => 'required|String|min:1|max:150',
+            'education.education_level'           => 'required|String|min:1|max:20',
+            'education.education_institution'     => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,150',
+            'education.starting_date'             => 'required|date',
+            'education.finishing_date'            => 'required|date',
 
-             $rules = [
-                 /**
-                  * Valida os campos do endereço.
-                  */
-                 'address.neighborhood'               => 'required',
-                 'address.street'                     => 'required',
-                 'address.street_number'              => 'required',
-                 'address.street_type'                => 'required',
-                 'address.zipcode'                    => 'required',
-                 'address.state'                      => 'required',
+            /**
+             * Valida os campos do parentesco.
+             */
+            'parentages.*.name'                   => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,150',
+            'parentages.*.gender'                 => 'required|alpha|min:1|max:1',
+            'parentages.*.birth_date'             => 'required|date',
+            'parentages.*.parentage_type_id'      => 'required',
 
-                /**
-                 * Valida os campos da cidade.
-                 */
-                'city.name'                           => 'required',
-                'city.state'                          => 'required',
-                'city.code'                           => 'required',
+            /**
+             * Valida os campos da identidade.
+             */
+            'identities.*.date_issued'            => 'required|date',
+            'identities.*.description'            => 'required|string|min:1|max:100',
+            'identities.*.number'                 => 'required|alpha_num|min:1|max:100',
+            'identities.*.series_number'          => 'required|alpha_num|min:1|max:10',
+            'identities.*.state_issued'           => 'required|alpha|min:2|max:2',
+            'identities.*.zone'                   => 'required|alpha_num|min:1|max:6',
+            'identities.*.section'                => 'required|alpha_num|min:1|max:6',
+            'identities.*.identity_type_id'       => 'required',
+            'identities.*.issuing_entity_id'      => 'required',
 
-<<<<<<< HEAD
             /**
              * Valida os campos de contrato de trabalho.
              */
@@ -133,21 +132,13 @@ class EmployeeRequest extends FormRequest
             'work_contract.new_end_date'          => 'required|date',
             'work_contract.new_term'              => 'required|numeric',
             'work_contract.contracting_regime_id' => 'required',
-=======
-                /**
-                 * Valida os campos do telefone.
-                 */
-                'telephone.telephone'                 => 'required',
-                'telephone.telephone_type'            => 'required',
->>>>>>> 8a92183275e5ba70f04e7faac268c54568539c5c
 
-                /**
-                 * Valida os campos de e-mail.
-                 */
-                'email.email'                         => 'required',
-                'email.email_type'                    => 'required',
-            ];
-        }
-        return $rules;
+            /**
+             * Valida os campos de benefício.
+             */
+            'tax_benefits.*.code'                 => 'required|digits:10',
+            'tax_benefits.*.name'                 => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,100',
+            'tax_benefits.*.value'                => 'required|numeric',
+        ];
     }
 }
