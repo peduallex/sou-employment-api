@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ethnicity;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\EthnicityRequest;
 use App\Http\Resources\EthnicityResource;
 use App\Repositories\Repository;
 
@@ -40,7 +41,7 @@ class EthnicityController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param EthnicityRequest $request
      * @return Response
      *
      * @SWG\Post(
@@ -59,7 +60,7 @@ class EthnicityController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(Request $request)
+    public function store(EthnicityRequest $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -88,7 +89,7 @@ class EthnicityController extends Controller
 
     /**
      * @param Ethnicity $ethnicity
-     * @param Request $request
+     * @param EthnicityRequest $request
      * @return Response
      *
      * @SWG\Put(
@@ -110,7 +111,7 @@ class EthnicityController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(Request $request, Ethnicity $ethnicity)
+    public function update(EthnicityRequest $request, Ethnicity $ethnicity)
     {
         $ethnicity->update($request->all());
         return new EthnicityResource($ethnicity);

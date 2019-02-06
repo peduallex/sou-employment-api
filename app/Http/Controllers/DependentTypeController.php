@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DependentType;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\DependentTypeRequest;
 use App\Http\Resources\DependentTypeResource;
 use App\Repositories\Repository;
 
@@ -40,7 +41,7 @@ class DependentTypeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param DependentTypeRequest $request
      * @return Response
      *
      * @SWG\Post(
@@ -87,7 +88,7 @@ class DependentTypeController extends Controller
 
     /**
      * @param DependentType $dependentType
-     * @param Request $request
+     * @param DependentTypeRequest $request
      * @return Response
      *
      * @SWG\Put(
@@ -108,7 +109,7 @@ class DependentTypeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(Request $request, DependentType $dependentType)
+    public function update(DependentTypeRequest $request, DependentType $dependentType)
     {
             $dependentType->update($request->all());
             return new DependentTypeResource($dependentType);
