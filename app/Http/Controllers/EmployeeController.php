@@ -81,6 +81,7 @@ class EmployeeController extends Controller
      *              @SWG\Property(property="first_job_ctps",  type="string", example="fjc"),
      *              @SWG\Property(property="first_job_public",  type="string", example="fjp"),
      *              @SWG\Property(property="icd",  type="string", example="1234567893"),
+     *              @SWG\Property(property="city_id", type="integer", example="1"),
      *              @SWG\Property(property="country_id",  type="integer", example="1"),
      *              @SWG\Property(property="ethnicity_id",  type="integer", example="1"),
      *              @SWG\Property(property="marital_status_id",  type="integer", example="1"),
@@ -92,12 +93,7 @@ class EmployeeController extends Controller
      *                  @SWG\Property(property="zipcode", type="string", example="01234-567"),
      *                  @SWG\Property(property="street_complement", type="string", example="street_complement"),
      *                  @SWG\Property(property="state", type="string", example="AA"),
-     *                  @SWG\Property(property="city_id", type="integer", example="1"),
-     *              ),
-     *              @SWG\Property(property="city",
-     *                  @SWG\Property(property="name", type="string", example="name"),
-     *                  @SWG\Property(property="state", type="string", example="AA"),
-     *                  @SWG\Property(property="code", type="string", example="1234567"),
+     *                  @SWG\Property(property="city_name", type="string", example="1"),
      *              ),
      *              @SWG\Property(property="telephone",
      *                  @SWG\Property(property="ddd", type="string", example="123"),
@@ -180,14 +176,13 @@ class EmployeeController extends Controller
         try{
             $employee = new Employee($request->only($this->model->getModel()->fillable));
 
-            $city = City::create($request->input('city'));
+            $city = City::where('name', 'like', $request->input('address.city_name'))->first();
 
             $address = new Address($request->input('address'));
             $address->city()->associate($city);
             $address->save();
 
             $employee->address()->associate($address);
-            $employee->city()->associate($city);
             $employee->save();
 
             $telephone = new Telephone($request->input('telephone'));
