@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MaritalStatusRequest extends FormRequest
+class AddressRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class MaritalStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'   => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,100',
+            'neighborhood'      => 'required',
+            'street'            => 'required',
+            'street_number'     => 'required',
+            'street_type'       => 'required',
+            'zipcode'           => 'required',
+            'state'             => 'required',
         ];
     }
 }

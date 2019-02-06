@@ -199,6 +199,7 @@ class EmployeeController extends Controller
             $employee->emails()->attach($email);
 
             $dependents = $request->input('dependents');
+
             foreach ($dependents as $input) {
               $dependent = new Dependent($input);
               $dependent->employee()->associate($employee);
