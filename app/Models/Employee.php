@@ -19,7 +19,7 @@ class Employee extends Model
      */
     protected $guarded = ['id'];
 
-    protected $primaryKey = 'id';
+    //protected $primaryKey = 'id';
 
     /**
      * Indica os atributos para definir dados em massa

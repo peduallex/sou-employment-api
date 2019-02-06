@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ParentageType;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\ParentageTypeRequest;
 use App\Http\Resources\ParentageTypeResource;
 use App\Repositories\Repository;
 
@@ -40,7 +41,7 @@ class ParentageTypeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param ParentageRequest $request
      * @return Response
      *
      * @SWG\Post(
@@ -58,7 +59,7 @@ class ParentageTypeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function store(Request $request)
+    public function store(ParentageTypeRequest $request)
     {
         return $this->model->create($request->only($this->model->getModel()->fillable));
     }
@@ -87,7 +88,7 @@ class ParentageTypeController extends Controller
 
     /**
      * @param ParentageType $parentageType
-     * @param Request $request
+     * @param ParentageTypeRequest $request
      * @return Response
      *
      * @SWG\Put(
@@ -108,7 +109,7 @@ class ParentageTypeController extends Controller
      *      @SWG\Response(response=500, description="Erro interno no servidor."),
      * )
      */
-    public function update(Request $request, ParentageType $parentageType)
+    public function update(ParentageTypeRequest $request, ParentageType $parentageType)
     {
         $parentageType->update($request->all());
         return new ParentageTypeResource($parentageType);

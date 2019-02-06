@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\TaxBenefit;
+use App\Models\TaxBenefitWorkContract;
+use App\Models\WorkContract;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\TaxBenefitRequest;
 use App\Http\Resources\TaxBenefitResource;
 use App\Repositories\Repository;
 
@@ -25,9 +28,9 @@ class TaxBenefitController extends Controller
      *
      * @SWG\Get(
      *      path="/tax-benefits",
-     *      summary="Exibe listagem de benefícios.",
+     *      summary="Exibe listagem de benefícios fiscais.",
      *      tags={"TaxBenefit"},
-     *      description="Obter todos os benefícios.",
+     *      description="Obter todos os benefícios fiscais.",
      *      produces={"application/json"},
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
      *      @SWG\Response(response=400, description="Solicitação inválida."),
@@ -45,9 +48,9 @@ class TaxBenefitController extends Controller
      *
      * @SWG\Get(
      *      path="/tax-benefits/{id}",
-     *      summary="Exibe benefício específico.",
+     *      summary="Exibe benefício fiscal específico.",
      *      tags={"TaxBenefit"},
-     *      description="Obter benefício pelo seu respectivo id.",
+     *      description="Obter benefício fiscal pelo seu respectivo id.",
      *      produces={"application/json"},
      *      @SWG\Parameter(name="id", description="tax benefit", type="integer", required=true, in="path"),
      *      @SWG\Response(response=200, description="Operação bem sucedida."),
@@ -59,37 +62,5 @@ class TaxBenefitController extends Controller
     public function show(TaxBenefit $taxBenefit)
     {
         return new TaxBenefitResource($taxBenefit);
-    }
-
-    /**
-     * @param TaxBenefit $taxBenefit
-     * @param Request $request
-     * @return Response
-     *
-     * @SWG\Put(
-     *      path="/tax-benefits/{id}",
-     *      summary="Atualiza benefício específico do banco de dados.",
-     *      tags={"TaxBenefit"},
-     *      description="Atualiza benefício pelo seu respectivo id.",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(name="id", description="tax benefit", type="integer", required=true, in="path"),
-     *      @SWG\Parameter(name="TaxBenefit", in="body",
-     *          @SWG\Schema(
-     *              @SWG\Property(property="name", type="string", example="name"),
-     *              @SWG\Property(property="code", type="string", example="1234567890"),
-     *              @SWG\Property(property="value", type="number", example="1500"),
-     *              @SWG\Property(property="work_contract_id", type="integer", example="1"),
-     *          ),
-     *      ),
-     *      @SWG\Response(response=200, description="Operação bem sucedida."),
-     *      @SWG\Response(response=400, description="Solicitação inválida."),
-     *      @SWG\Response(response=404, description="Recurso não encontrado."),
-     *      @SWG\Response(response=500, description="Erro interno no servidor."),
-     * )
-     */
-    public function update(Request $request, TaxBenefit $taxBenefit)
-    {
-            $taxBenefit->update($request->all());
-            return new TaxBenefitResource($taxBenefit);
     }
 }
