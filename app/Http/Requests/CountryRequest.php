@@ -24,10 +24,10 @@ class CountryRequest extends FormRequest
     public function rules()
     {
         return [
-            'code'              => 'required|digits:3',
-            'name'              => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,150',
-            'portuguese_name'   => 'required|regex:/^([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-])+((\s*)+([a-zA-ZñÑáãâéêíóõôúÁÉÍÓÚ._-]*)*)+$/|between:1,150',
-            'iso_alfa'          => 'required|alpha|min:3|max:3',
+            'code'              => 'required',
+            'name'              => 'required',
+            'portuguese_name'   => 'required',
+            'iso_alfa'          => 'required',
         ];
     }
 
